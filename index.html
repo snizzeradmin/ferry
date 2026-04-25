@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferry Express Logistics – Worldwide Shipping from Nigeria</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --ink: #0C1523;
+    --ink-muted: #5A6475;
+    --accent: #E84619;
+    --accent-warm: #FF6B3D;
+    --blue: #1A5CFF;
+    --border: #E3E1DA;
+    --shadow: rgba(12,21,35,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 72px;
+    background: rgba(247,246,242,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 32px var(--shadow); }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+  }
+  .logo-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; font-size: 1.05rem;
+    color: var(--ink); line-height: 1.1;
+  }
+  .logo-text span { color: var(--accent); }
+  .logo-sub { font-size: 0.6rem; font-weight: 400; color: var(--ink-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.875rem; font-weight: 500;
+    color: var(--ink-muted); text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink);
+    color: white !important;
+    padding: 9px 22px;
+    border-radius: 100px;
+    font-weight: 500 !important;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent) !important; transform: translateY(-1px); }
+
+  .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: 0.3s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 5vw 80px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,70,25,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 70%, rgba(26,92,255,0.05) 0%, transparent 60%);
+  }
+
+  .hero-grid-lines {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.4;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    position: relative; z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 100px; padding: 6px 14px 6px 6px;
+    font-size: 0.78rem; font-weight: 500; color: var(--ink);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px var(--shadow);
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge-dot {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); display: flex; align-items: center; justify-content: center;
+  }
+  .hero-badge-dot svg { width: 12px; height: 12px; fill: white; }
+
+  .hero-headline {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-headline .accent { color: var(--accent); }
+  .hero-headline .underline-text {
+    position: relative; display: inline-block;
+  }
+  .hero-headline .underline-text::after {
+    content: '';
+    position: absolute; bottom: 2px; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+    border-radius: 2px;
+  }
+
+  .hero-sub {
+    margin-top: 1.25rem;
+    font-size: 1.05rem; color: var(--ink-muted); line-height: 1.7;
+    max-width: 480px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; gap: 1rem;
+    margin-top: 2rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent);
+    color: white; text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 0.9rem;
+    padding: 14px 28px; border-radius: 100px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(232,70,25,0.3);
+    letter-spacing: 0.01em;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,70,25,0.4); }
+  .btn-primary svg { width: 16px; height: 16px; fill: white; }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: var(--ink); text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500; font-size: 0.9rem;
+    padding: 13px 24px; border-radius: 100px;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .btn-outline svg { width: 18px; height: 18px; }
+
+  .hero-stats {
+    display: flex; gap: 2rem; margin-top: 2.5rem;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .stat-item { display: flex; flex-direction: column; }
+  .stat-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem; font-weight: 800; color: var(--ink); line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--ink-muted); margin-top: 3px; }
+
+  .hero-visual {
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    animation: fadeIn 0.8s 0.3s ease both;
+  }
+
+  .hero-card-stack {
+    position: relative; width: 100%; max-width: 420px;
+  }
+
+  .tracking-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(12,21,35,0.12);
+    position: relative; z-index: 2;
+  }
+  .tracking-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .tracking-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink-muted);
+  }
+  .tracking-status {
+    background: #EDFAF3; color: #15803D;
+    font-size: 0.7rem; font-weight: 600; padding: 4px 10px;
+    border-radius: 100px; letter-spacing: 0.05em;
+  }
+  .tracking-id {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem; font-weight: 800; color: var(--ink);
+    margin-bottom: 1.5rem; letter-spacing: -0.02em;
+  }
+  .route-visual {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;
+  }
+  .route-point {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .route-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 2px solid var(--accent);
+  }
+  .route-dot.dest { background: var(--accent); }
+  .route-city { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
+  .route-country { font-size: 0.65rem; color: var(--ink-muted); }
+  .route-line {
+    flex: 1; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--border), var(--blue));
+    position: relative; margin-bottom: 14px;
+  }
+  .route-plane {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg); padding: 2px 4px; border-radius: 4px;
+    font-size: 14px;
+  }
+  .tracking-progress {
+    background: var(--border); border-radius: 4px; height: 6px; overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .tracking-bar {
+    height: 100%; width: 68%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+    border-radius: 4px;
+    animation: progressFill 1.5s 1s ease both;
+  }
+  .tracking-footer {
+    display: flex; justify-content: space-between; font-size: 0.72rem;
+    color: var(--ink-muted);
+  }
+
+  .floating-card {
+    position: absolute;
+    background: white; border-radius: 14px;
+    padding: 14px 18px; box-shadow: 0 12px 40px rgba(12,21,35,0.12);
+    z-index: 3;
+  }
+  .float-card-1 { bottom: -24px; right: -20px; }
+  .float-card-2 { top: -16px; left: -20px; }
+  .float-label { font-size: 0.65rem; color: var(--ink-muted); font-weight: 500; margin-bottom: 2px; }
+  .float-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem; font-weight: 800; color: var(--ink);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .float-icon { font-size: 1.1rem; }
+
+  /* ─── MARQUEE ─── */
+  .marquee-section {
+    background: var(--ink); padding: 14px 0; overflow: hidden;
+    position: relative;
+  }
+  .marquee-track {
+    display: flex; gap: 3rem; white-space: nowrap;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.7);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+  .marquee-item svg { width: 14px; height: 14px; fill: var(--accent); opacity: 0.8; }
+
+  /* ─── SECTIONS ─── */
+  .section { padding: 100px 5vw; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 20px; height: 2px; background: var(--accent); border-radius: 2px;
+  }
+
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.025em; color: var(--ink);
+  }
+
+  .section-sub {
+    font-size: 1rem; color: var(--ink-muted); line-height: 1.7;
+    margin-top: 1rem; max-width: 520px;
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--surface); }
+
+  .services-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3.5rem; gap: 2rem; flex-wrap: wrap;
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+    background: var(--border); border-radius: 20px; overflow: hidden;
+  }
+
+  .service-card {
+    background: var(--surface); padding: 40px 32px;
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--bg); }
+  .service-card:hover .service-icon { background: var(--accent); }
+  .service-card:hover .service-icon svg { fill: white; }
+
+  .service-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: rgba(232,70,25,0.08);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: background 0.3s;
+  }
+  .service-icon svg { width: 26px; height: 26px; fill: var(--accent); transition: fill 0.3s; }
+
+  .service-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--ink);
+    margin-bottom: 0.6rem; letter-spacing: -0.01em;
+  }
+  .service-desc { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+  .service-num {
+    position: absolute; bottom: 24px; right: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem; font-weight: 800; color: var(--border);
+    line-height: 1; letter-spacing: -0.05em;
+    transition: color 0.3s;
+  }
+  .service-card:hover .service-num { color: rgba(232,70,25,0.1); }
+
+  /* ─── WHY US ─── */
+  #why {
+    background: var(--bg);
+    display: grid;
+  }
+  .why-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .why-features { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+  .why-feature {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 20px 24px; border-radius: 14px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .why-feature:hover { border-color: var(--border); background: white; }
+  .why-feat-icon {
+    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+    background: rgba(232,70,25,0.08);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .why-feat-icon svg { width: 20px; height: 20px; fill: var(--accent); }
+  .why-feat-title { font-weight: 600; font-size: 0.925rem; color: var(--ink); margin-bottom: 3px; }
+  .why-feat-desc { font-size: 0.825rem; color: var(--ink-muted); line-height: 1.6; }
+
+  .why-visual {
+    position: relative; display: flex; align-items: center; justify-content: center;
+  }
+  .globe-card {
+    background: var(--ink); border-radius: 24px;
+    padding: 40px; position: relative; overflow: hidden;
+    min-height: 420px; display: flex; flex-direction: column; justify-content: space-between;
+    width: 100%;
+  }
+  .globe-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 70% 30%, rgba(232,70,25,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(26,92,255,0.12) 0%, transparent 60%);
+  }
+  .globe-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4); position: relative; z-index: 2;
+  }
+  .globe-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem; font-weight: 800; color: white; line-height: 1.1;
+    letter-spacing: -0.03em; position: relative; z-index: 2; margin-top: 12px;
+  }
+  .globe-title span { color: var(--accent-warm); }
+
+  .destination-list {
+    display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 2;
+  }
+  .destination-item {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 12px 16px;
+  }
+  .dest-left { display: flex; align-items: center; gap: 10px; }
+  .dest-flag { font-size: 1.1rem; }
+  .dest-name { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.8); }
+  .dest-time { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-top: 1px; }
+  .dest-tag {
+    font-size: 0.65rem; font-weight: 600; padding: 3px 8px; border-radius: 100px;
+    background: rgba(232,70,25,0.2); color: var(--accent-warm); letter-spacing: 0.05em;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  #process { background: var(--surface); }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; position: relative; margin-top: 3.5rem;
+  }
+  .process-steps::before {
+    content: ''; position: absolute;
+    top: 28px; left: 14%; right: 14%; height: 1px;
+    background: linear-gradient(90deg, var(--border), var(--accent), var(--border));
+    z-index: 0;
+  }
+  .process-step {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 0 16px; position: relative; z-index: 1;
+  }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 2px solid var(--border); background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 800;
+    color: var(--ink-muted); margin-bottom: 1.5rem;
+    transition: border-color 0.3s, background 0.3s, color 0.3s;
+    position: relative;
+  }
+  .process-step:hover .step-num {
+    border-color: var(--accent); background: var(--accent); color: white;
+  }
+  .step-title {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.95rem; color: var(--ink); margin-bottom: 8px;
+  }
+  .step-desc { font-size: 0.825rem; color: var(--ink-muted); line-height: 1.6; }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--bg); }
+  .contact-wrap {
+    background: var(--ink); border-radius: 28px; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .contact-left {
+    padding: 64px 56px;
+    position: relative; overflow: hidden;
+  }
+  .contact-left-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(232,70,25,0.12) 0%, transparent 70%);
+  }
+  .contact-pretitle {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1rem; position: relative; z-index: 2;
+  }
+  .contact-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800; color: white; line-height: 1.1;
+    letter-spacing: -0.025em; position: relative; z-index: 2; margin-bottom: 1.2rem;
+  }
+  .contact-desc {
+    font-size: 0.925rem; color: rgba(255,255,255,0.5);
+    line-height: 1.7; max-width: 380px; position: relative; z-index: 2; margin-bottom: 2.5rem;
+  }
+  .contact-channels {
+    display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 2;
+  }
+  .contact-channel {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 14px 18px; text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-channel:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.15); }
+  .channel-icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .channel-icon.wa { background: rgba(37,211,102,0.15); }
+  .channel-icon.email { background: rgba(26,92,255,0.15); }
+  .channel-icon svg { width: 18px; height: 18px; }
+  .channel-label { font-size: 0.7rem; color: rgba(255,255,255,0.35); margin-bottom: 2px; font-weight: 500; }
+  .channel-value { font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.8); }
+
+  .contact-right {
+    background: var(--bg);
+    padding: 64px 56px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .form-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .form-sub { font-size: 0.875rem; color: var(--ink-muted); margin-bottom: 2rem; line-height: 1.6; }
+
+  .form-group { margin-bottom: 1.25rem; }
+  .form-label { font-size: 0.78rem; font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .form-input, .form-select, .form-textarea {
+    width: 100%; padding: 12px 16px;
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 10px; font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem; color: var(--ink);
+    outline: none; transition: border-color 0.2s;
+    -webkit-appearance: none; appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); }
+  .form-textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%235A6475'%3E%3Cpath d='M5 8l5 5 5-5H5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 12px center; background-size: 16px;
+    padding-right: 40px; cursor: pointer;
+  }
+  .form-submit {
+    width: 100%; padding: 14px;
+    background: var(--accent); color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 0.9rem;
+    border: none; border-radius: 100px; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(232,70,25,0.25);
+    margin-top: 0.5rem; letter-spacing: 0.01em;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,70,25,0.35); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink); padding: 60px 5vw 32px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .logo-text { color: white; }
+  .footer-brand-desc {
+    font-size: 0.825rem; color: rgba(255,255,255,0.4); line-height: 1.7;
+    margin-top: 1rem; max-width: 280px;
+  }
+  .footer-col-title {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.82rem; color: rgba(255,255,255,0.6);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a {
+    font-size: 0.85rem; color: rgba(255,255,255,0.4); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.85); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+  .footer-badge {
+    font-size: 0.72rem; color: rgba(255,255,255,0.25);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .footer-badge span { color: var(--accent); font-size: 10px; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes progressFill {
+    from { width: 0; }
+    to { width: 68%; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ─── MOBILE NAV ─── */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; top: 72px;
+    background: white; z-index: 99;
+    flex-direction: column; padding: 2rem 5vw; gap: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 1.1rem; font-weight: 500; color: var(--ink);
+    text-decoration: none; padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 0 3vw; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .hero-headline { font-size: clamp(2rem, 4vw, 3rem); }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .service-card { padding: 28px 20px; }
+    .why-inner { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .process-steps::before { display: none; }
+    .contact-wrap { grid-template-columns: 1fr; }
+    .contact-right { padding: 40px 32px; }
+    .contact-left { padding: 48px 32px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .section { padding: 60px 3vw; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 0 2vw; height: 64px; }
+    .logo-sub { font-size: 0.5rem; }
+    .logo-text { font-size: 0.9rem; }
+    .nav-cta { padding: 7px 16px; font-size: 0.75rem; }
+    .hero-badge { font-size: 0.7rem; padding: 5px 10px 5px 5px; }
+    .hero-headline { font-size: clamp(1.6rem, 5vw, 2.5rem); }
+    .hero-sub { font-size: 0.95rem; }
+    .hero-actions { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .stat-num { font-size: 1.3rem; }
+    .stat-label { font-size: 0.7rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 24px 16px; }
+    .service-icon { width: 44px; height: 44px; }
+    .service-title { font-size: 1rem; }
+    .service-num { font-size: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-brand-desc { max-width: 100%; }
+    .process-steps { grid-template-columns: 1fr; gap: 1.5rem; }
+    .why-features { gap: 1rem; }
+    .why-feature { padding: 16px 20px; }
+    .contact-wrap { border-radius: 20px; }
+    .contact-left, .contact-right { padding: 32px 20px; }
+    .contact-title { font-size: clamp(1.4rem, 4vw, 2rem); }
+    .section { padding: 40px 2vw; }
+    .marquee-item { font-size: 0.7rem; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">
+      <img src="logo.png" alt="Ferry Express Logistics">
+    </div>
+    <div>
+      <div class="logo-text">Ferry <span>Express</span></div>
+      <div class="logo-sub">Logistics</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#why" onclick="closeMobile()">Why Us</a>
+  <a href="#process" onclick="closeMobile()">How It Works</a>
+  <a href="#contact" onclick="closeMobile()" style="color:var(--accent);font-weight:700;">Get a Quote →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        Proudly Nigerian · Shipping Worldwide
+      </div>
+      <h1 class="hero-headline">
+        Ship Anything,<br>
+        <span class="underline-text">Anywhere</span><br>
+        <span class="accent">In the World</span>
+      </h1>
+      <p class="hero-sub">Ferry Express Logistics connects Nigeria to the globe. Fast, reliable, and fully trackable — we handle your shipments with the care they deserve.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.35 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.76a16 16 0 0 0 6 6l.72-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.32 16a2 2 0 0 1 .68.92z"/></svg>
+          Start Shipping
+        </a>
+        <a href="https://wa.me/2347041162752" target="_blank" class="btn-outline">
+          <svg viewBox="0 0 24 24" style="fill:none;stroke:#25D366;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Countries Served</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">Support Available</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">99%</span>
+          <span class="stat-label">Delivery Rate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="tracking-card">
+          <div class="tracking-card-header">
+            <span class="tracking-label">Live Tracking</span>
+            <span class="tracking-status">● In Transit</span>
+          </div>
+          <div class="tracking-id">FEL-2025-NG001</div>
+          <div class="route-visual">
+            <div class="route-point">
+              <div class="route-dot"></div>
+              <div class="route-city">Lagos</div>
+              <div class="route-country">Nigeria</div>
+            </div>
+            <div class="route-line">
+              <div class="route-plane">✈️</div>
+            </div>
+            <div class="route-point">
+              <div class="route-dot dest"></div>
+              <div class="route-city">London</div>
+              <div class="route-country">United Kingdom</div>
+            </div>
+          </div>
+          <div class="tracking-progress">
+            <div class="tracking-bar"></div>
+          </div>
+          <div class="tracking-footer">
+            <span>Departed Lagos · 2 days ago</span>
+            <span>ETA: 1 day</span>
+          </div>
+        </div>
+
+        <div class="floating-card float-card-1">
+          <div class="float-label">Packages Today</div>
+          <div class="float-value"><span class="float-icon">📦</span> 142 Shipped</div>
+        </div>
+        <div class="floating-card float-card-2">
+          <div class="float-label">Coverage</div>
+          <div class="float-value"><span class="float-icon">🌍</span> Worldwide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Air Freight</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Sea Cargo</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Door-to-Door</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Express Delivery</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Customs Clearance</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Warehousing</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Live Tracking</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Air Freight</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Sea Cargo</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Door-to-Door</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Express Delivery</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Customs Clearance</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Warehousing</div>
+    <div class="marquee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Live Tracking</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="services-header reveal">
+      <div>
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Comprehensive Shipping<br>Solutions</h2>
+      </div>
+      <p class="section-sub">From a single parcel to full container loads — we have the right solution for every shipping need.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </div>
+        <div class="service-title">Air Freight</div>
+        <div class="service-desc">Fast, reliable air shipping to over 50 destinations globally. Ideal for time-sensitive shipments and high-value goods.</div>
+        <div class="service-num">01</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg>
+        </div>
+        <div class="service-title">Sea Cargo</div>
+        <div class="service-desc">Cost-effective ocean freight for large and heavy shipments. Full container loads (FCL) and less-than-container (LCL) options available.</div>
+        <div class="service-num">02</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8zM5.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM18.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+        </div>
+        <div class="service-title">Door-to-Door</div>
+        <div class="service-desc">Complete end-to-end delivery from pickup at your location straight to your recipient — anywhere in the world, no hassle.</div>
+        <div class="service-num">03</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="service-title">Live Tracking</div>
+        <div class="service-desc">Real-time shipment visibility from dispatch to delivery. Know exactly where your package is at every step of the journey.</div>
+        <div class="service-num">04</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="service-title">Customs Clearance</div>
+        <div class="service-desc">Expert handling of all customs documentation and import/export procedures to ensure smooth, compliant cross-border movement.</div>
+        <div class="service-num">05</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="service-title">Warehousing</div>
+        <div class="service-desc">Secure storage solutions at our Lagos facility. Short-term and long-term options with full inventory management support.</div>
+        <div class="service-num">06</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="section">
+  <div class="section-inner">
+    <div class="why-inner">
+      <div class="reveal">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">Built for Nigerian<br>Businesses &amp; Individuals</h2>
+        <p class="section-sub">We understand the unique challenges of shipping from Nigeria. Ferry Express was built to solve them.</p>
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="why-feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="stroke:var(--accent)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="why-feat-title">Fully Insured Shipments</div>
+              <div class="why-feat-desc">Every package we handle is fully insured. Your goods are protected from pickup to final delivery.</div>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="stroke:var(--accent)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="why-feat-title">Fast Turnaround Times</div>
+              <div class="why-feat-desc">We prioritize speed without compromising safety. Get your shipments delivered faster than the industry standard.</div>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="stroke:var(--accent)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.35 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.76a16 16 0 0 0 6 6l.72-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="why-feat-title">Dedicated Customer Support</div>
+              <div class="why-feat-desc">Our team is available 24/7 via WhatsApp and email to answer your questions and provide updates.</div>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="stroke:var(--accent)"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <div class="why-feat-title">Pickup From Your Doorstep</div>
+              <div class="why-feat-desc">No need to drop off at a courier office. We come to you in Lagos for convenient package collection.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-visual reveal">
+        <div class="globe-card">
+          <div class="globe-bg"></div>
+          <div>
+            <div class="globe-label">Global Coverage</div>
+            <div class="globe-title">We Ship To<br><span>50+ Countries</span></div>
+          </div>
+          <div class="destination-list">
+            <div class="destination-item">
+              <div class="dest-left">
+                <span class="dest-flag">🇬🇧</span>
+                <div>
+                  <div class="dest-name">United Kingdom</div>
+                  <div class="dest-time">3–5 business days</div>
+                </div>
+              </div>
+              <div class="dest-tag">AIR</div>
+            </div>
+            <div class="destination-item">
+              <div class="dest-left">
+                <span class="dest-flag">🇺🇸</span>
+                <div>
+                  <div class="dest-name">United States</div>
+                  <div class="dest-time">5–7 business days</div>
+                </div>
+              </div>
+              <div class="dest-tag">AIR</div>
+            </div>
+            <div class="destination-item">
+              <div class="dest-left">
+                <span class="dest-flag">🇨🇦</span>
+                <div>
+                  <div class="dest-name">Canada</div>
+                  <div class="dest-time">5–8 business days</div>
+                </div>
+              </div>
+              <div class="dest-tag">AIR</div>
+            </div>
+            <div class="destination-item">
+              <div class="dest-left">
+                <span class="dest-flag">🇩🇪</span>
+                <div>
+                  <div class="dest-name">Germany</div>
+                  <div class="dest-time">4–6 business days</div>
+                </div>
+              </div>
+              <div class="dest-tag">AIR</div>
+            </div>
+            <div class="destination-item">
+              <div class="dest-left">
+                <span class="dest-flag">🇦🇺</span>
+                <div>
+                  <div class="dest-name">Australia</div>
+                  <div class="dest-time">7–10 business days</div>
+                </div>
+              </div>
+              <div class="dest-tag">AIR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="section">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto 0">
+      <div class="section-label" style="justify-content:center">How It Works</div>
+      <h2 class="section-title">Ship in 4 Simple Steps</h2>
+      <p class="section-sub" style="margin:1rem auto 0">Getting your shipment from Lagos to the world has never been this easy.</p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Contact Us</div>
+        <div class="step-desc">Reach out via WhatsApp or email with details about your shipment — item type, weight, and destination.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Get a Quote</div>
+        <div class="step-desc">We'll assess your needs and provide a transparent, competitive quote tailored to your shipment.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">We Collect</div>
+        <div class="step-desc">Our team picks up your package from your location in Lagos. We handle packaging, labeling, and documentation.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Track &amp; Receive</div>
+        <div class="step-desc">Monitor your shipment in real time. Your recipient receives it safely at their doorstep, anywhere in the world.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="contact-wrap reveal">
+      <div class="contact-left">
+        <div class="contact-left-bg"></div>
+        <div class="contact-pretitle">Get in Touch</div>
+        <h2 class="contact-title">Ready to Ship?<br>Let's Talk.</h2>
+        <p class="contact-desc">Contact us via WhatsApp or email. We'll respond promptly with a quote and answer any questions about your shipment.</p>
+        <div class="contact-channels">
+          <a href="https://wa.me/2347041162752" target="_blank" class="contact-channel">
+            <div class="channel-icon wa">
+              <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            </div>
+            <div>
+              <div class="channel-label">WhatsApp</div>
+              <div class="channel-value">+234 (704) 116-2752</div>
+            </div>
+          </a>
+          <a href="mailto:Oluwaferanmikazeem061@gmail.com" class="contact-channel">
+            <div class="channel-icon email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A5CFF" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="channel-label">Email</div>
+              <div class="channel-value">Oluwaferanmikazeem061@gmail.com</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <h3 class="form-title">Send Us a Message</h3>
+        <p class="form-sub">Fill in your details and we'll get back to you via your preferred channel within a few hours.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="e.g. Adeola">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="e.g. Adeyemi">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone / WhatsApp</label>
+          <input class="form-input" type="tel" placeholder="+234 XXX XXX XXXX">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Shipping From</label>
+            <input class="form-input" type="text" placeholder="e.g. Lagos, Nigeria">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Shipping To</label>
+            <input class="form-input" type="text" placeholder="e.g. London, UK">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Shipment Type</label>
+          <select class="form-select">
+            <option value="">Select shipment type</option>
+            <option>Air Freight</option>
+            <option>Sea Cargo</option>
+            <option>Express / Priority</option>
+            <option>Document / Envelope</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message / Description</label>
+          <textarea class="form-textarea" placeholder="Briefly describe what you'd like to ship — item type, estimated weight, any special requirements..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleFormSubmit()">Send Enquiry via WhatsApp →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="text-decoration:none">
+          <div class="logo-icon">
+            <img src="logo.png" alt="Ferry Express Logistics">
+          </div>
+          <div>
+            <div class="logo-text" style="color:white">Ferry <span>Express</span></div>
+            <div class="logo-sub" style="color:rgba(255,255,255,0.3)">Logistics</div>
+          </div>
+        </a>
+        <p class="footer-brand-desc">Nigeria's trusted worldwide logistics partner. Connecting Lagos and beyond to every corner of the globe — safely, swiftly, and reliably.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#process">How It Works</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#contact">Air Freight</a></li>
+          <li><a href="#contact">Sea Cargo</a></li>
+          <li><a href="#contact">Door-to-Door</a></li>
+          <li><a href="#contact">Customs Clearance</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/2347041162752" target="_blank">WhatsApp</a></li>
+          <li><a href="mailto:Oluwaferanmikazeem061@gmail.com">Email Us</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Ferry Express Logistics. All rights reserved. · Lagos, Nigeria</div>
+      <div class="footer-badge">Made with <span>♥</span> in Lagos, Nigeria</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger service cards
+  document.querySelectorAll('.service-card').forEach((card, i) => {
+    card.style.transitionDelay = (i * 60) + 'ms';
+  });
+
+  // Form submit → WhatsApp
+  function handleFormSubmit() {
+    const inputs = document.querySelectorAll('.form-input, .form-select, .form-textarea');
+    const vals = Array.from(inputs).map(i => i.value.trim());
+    const [firstName, lastName, email, phone, from, to, , , message] = vals;
+    const type = document.querySelector('.form-select').value;
+
+    const text = encodeURIComponent(
+      `Hello Ferry Express Logistics! 👋\n\n` +
+      `*New Shipping Enquiry*\n` +
+      `Name: ${firstName || '—'} ${lastName || '—'}\n` +
+      `Email: ${email || '—'}\n` +
+      `Phone: ${phone || '—'}\n` +
+      `From: ${from || '—'}\n` +
+      `To: ${to || '—'}\n` +
+      `Type: ${type || '—'}\n\n` +
+      `Message: ${message || '—'}`
+    );
+    window.open(`https://wa.me/2347041162752?text=${text}`, '_blank');
+  }
+</script>
+</body>
+</html>
